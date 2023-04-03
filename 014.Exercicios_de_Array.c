@@ -15,56 +15,65 @@ main(void){
 	SetConsoleCP(cp);
 	SetConsoleOutputCP(cp);
 	
-//	014) Escreva um módulo que retira todos os números repetidos das primeiras N posições de um
+//	014) Escreva um mÃ³dulo que retira todos os nÃºmeros repetidos das primeiras qtd_numero posiÃ§Ãµes de um
 //	vetor em ordem crescente, colocando-os em ordem crescente no final do vetor. Exemplo:
-//	Para o vetor {1,2,2,3,3,4}, a solução é {1,2,3,4,2,3}.
+//	Para o vetor {1,2,2,3,3,4}, a soluÃ§Ã£o Ã© {1,2,3,4,2,3}.
 
 
-    int arr[100];  // vetor com tamanho máximo de 100 elementos
-    int n;  // número de elementos a serem lidos
-    scanf("%d", &n);
+  
+    int qtd_numero, cont;  
+    printf("Digite a quantidade de nÃºmeros");
+    scanf("%d", &qtd_numero);
+
+    int numero[qtd_numero];
+    int repetidos[qtd_numero];
     
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);  // lê cada elemento do vetor
+    for (int i = 0; i < qtd_numero; i++){
+    	cont=i+1;
+    	printf("Digite o %dÂºNÃºmero: ", cont);
+        scanf("%d", &numero[i]);  
     }
     
-    for (int i = 0; i < n; i++) {
-        int num = arr[i];
-        int is_repeated = 0;  // flag para indicar se o número é repetido
+    for (int i = 0; i < qtd_numero; i++){
+        int num = numero[i];
+        repetidos[i] = 0;  
         
-        // procura por outras ocorrências do mesmo número no vetor
-        for (int j = 0; j < n; j++) {
-            if (j != i && arr[j] == num) {
-                is_repeated = 1;  // marca como repetido
+        
+        for (int j = 0; j < qtd_numero; j++){
+            if (j != i && numero[j] == num){
+                repetidos[j] = 1;  
                 break;
+                
             }
+            
         }
         
-        // se o número não é repetido, mantém no vetor
-        if (!is_repeated) {
-            printf("%d ", num);
-        }
+        if (repetidos[i]==1) {
+		    printf("%d ", num);
+		}
+        
     }
     
-    // encontra e imprime todos os números repetidos em ordem crescente
-    for (int i = 0; i < n; i++) {
-        int num = arr[i];
-        int count = 0;  // conta quantas vezes o número aparece no vetor
+    
+    for (int i = 0; i < qtd_numero; i++) {
+        int num = numero[i];
+        int count = 0;  
+		        
         
-        // conta as ocorrências do número no vetor
-        for (int j = 0; j < n; j++) {
-            if (arr[j] == num) {
+        for (int j = 0; j < qtd_numero; j++) {
+            if (numero[j] == num) {
                 count++;
             }
         }
         
-        // se o número aparece mais de uma vez, imprime-o
+        
         if (count > 1) {
             printf("%d ", num);
         }
     }
     
-    printf("\n");  // imprime uma quebra de linha no final da saída
-    
+    printf("\n");  
+	
+	    
     return 0;
 }
