@@ -27,6 +27,7 @@ main(void){
 
     int numero[qtd_numero];
     int repetidos[qtd_numero];
+    int repetindos2[qtd_numero];
     
     for (int i = 0; i < qtd_numero; i++){
     	cont=i+1;
@@ -34,7 +35,35 @@ main(void){
         scanf("%d", &numero[i]);  
     }
     
-    for (int i = 0; i < qtd_numero; i++){
+    
+    for(int i=0;i<qtd_numero;i++){
+    	repetidos[i] = 0;
+    	repetindos2[i] = 0;
+		for(int j=0;j<qtd_numero/2;j++){
+			if(numero[i]==numero[j] && i!=j){
+				repetidos[i] = 1;
+				repetindos2[j] = 0;
+			}		
+		}
+	}
+	
+	/*
+	
+	*/
+    for(int i=0;i<qtd_numero;i++){
+		if(repetidos[i]==0){
+			printf("%d ", numero[i]);
+		
+		}
+	}
+	for(int i=0;i<qtd_numero;i++){
+		if(repetidos[i]==1){
+			printf("%d ", numero[i]);
+		}
+		printf("\n\n%d", repetidos);
+	}
+    
+    /*for (int i = 0; i < qtd_numero; i++){
         int num = numero[i];
         repetidos[i] = 0;  
         
@@ -71,7 +100,7 @@ main(void){
             printf("%d ", num);
         }
     }
-    
+    */
     printf("\n");  
 	
 	    
